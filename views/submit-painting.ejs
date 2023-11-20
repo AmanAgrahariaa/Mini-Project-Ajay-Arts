@@ -1,0 +1,58 @@
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Add new Painting</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead">Create & Share: Unveil Your Artistry by Adding a New Painting to Our Gallery. Showcase Your Masterpiece Now!</p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+
+  <% if(infoSubmitObj != '') { %>
+    <div class="col-8 alert alert-success" role="alert">
+      <%= infoSubmitObj %>
+    </div>
+  <% } %>
+
+  <% if(infoErrorsObj != '') { %>
+    <div class="col-8 alert alert-danger" role="alert">
+      <%= infoErrorsObj[0].message %>
+    </div>
+  <% } %>
+
+  <div class="col-8">
+
+    <form action="/submit-painting" enctype="multipart/form-data" method="POST">
+    
+      <div class="row g-3">
+
+          <div class="col-12">
+          <label for="category">Select Category</label>
+          <select class="form-select form-control" name="category" aria-label="Category">
+            <option selected>Select Category</option>
+            <option value="Abstract">Abstract</option>
+            <option value="OilPainting">Oil Painting</option>
+            <option value="Pencil">Pencil Art</option>
+            <option value="KajalArt">Kajal Art</option>
+            <option value="Crayon">Crayon</option>
+          </select>
+        </div>
+        
+        
+
+       
+
+        <div class="col-12">
+          <label for="image">Product Image</label>
+          <input type="file" class="form-control" name="image" accept="image/*">
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit Painting</button>
+        </div>
+
+      </div>
+    
+    </form>
+
+  </div>
+</div>

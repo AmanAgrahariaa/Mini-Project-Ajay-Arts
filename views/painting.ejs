@@ -1,0 +1,20 @@
+<% if(painting != null ) { %>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home/<%- painting.category %></a></li>
+    </ol>
+  </nav>
+
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-12 col-md-6 mx-auto">
+        <img src="/uploads/<%- painting.image %>" class="img-fluid w-100 sticky-top" style="top: 20px;" alt="<%- painting.name %>" loading="lazy">
+
+      </div>
+    </div>
+  </div>  
+  
+<% } else { %>
+  <p>No item found.</p>
+<% } %>
