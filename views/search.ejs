@@ -1,5 +1,7 @@
+<!-- Page Heading -->
 <h1 class="pb-4">Search Results</h1>
 
+<!-- Display Search Results in a Grid Layout -->
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
   <% if(painting != '') { %>
     <% painting.forEach(function(painting, index){ %>
@@ -10,6 +12,7 @@
       <div class="pt-1"><%= painting.name %></div>
     </a>
     <% }) %>
+     <!-- Displayed when no search results are found -->
   <% } else { %>
     <p>No items found.</p>
   <% } %>

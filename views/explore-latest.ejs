@@ -1,16 +1,23 @@
+<!-- Page heading -->
 <h1 class="pb-4">Explore Latest</h1>
 
+<!-- Display latest paintings in a grid layout -->
 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-  <% if(painting != '') { %>
+  <!-- Check if there are paintings available -->
+  <% if(painting !='' ) { %>
+    <!-- Iterate through each painting -->
     <% painting.forEach(function(painting, index){ %>
-    <a href="/painting/<%= painting._id %>" class="col text-center category__link">
-      <div class="category__img category__img--large shadow">
-        <img src="/uploads/<%= painting.image %>" alt="<%= painting.name %>" loading="lazy">
-      </div>
-      <div class="pt-1"><%= painting.name %></div>
-    </a>
-    <% }) %>
-  <% } else { %>
-    <p>No items found.</p>
-  <% } %> 
+      <a href="/painting/<%= painting._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= painting.image %>" alt="<%= painting.name %>" loading="lazy">
+        </div>
+        <div class="pt-1">
+          <%= painting.name %>
+        </div>
+      </a>
+      <% }) %>
+        <!-- Display a message if no items are found -->
+        <% } else { %>
+          <p>No items found.</p>
+          <% } %>
 </div>

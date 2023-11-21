@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
+     <!-- Meta tags for character set, compatibility, and viewport -->
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Title of the page with dynamic rendering based on the 'title' variable -->
      <title>
-          <%= typeof title!='undefined' ? title: 'Painting - Made with Node.js' %>
+          <%= typeof title !== 'undefined' ? title : 'Painting - Made with Node.js' %>
      </title>
+
+     <!-- External CSS and font links -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -17,19 +22,15 @@
           rel="stylesheet">
      <link rel="stylesheet" href="/css/styles.css">
 
-
-
-
-
-
+     <!-- Additional CSS styles -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
 
+     <!-- Internal styles for the page -->
      <style>
           #logo {
-
                font-size: 3em;
                font-weight: bold;
                font-family: 'Pacifico', cursive;
@@ -42,8 +43,6 @@
                /* Orange */
           }
 
-
-
           li {
                font-weight: bold;
           }
@@ -52,25 +51,29 @@
                background-color: #ddd;
           }
      </style>
-
-
 </head>
 
 <body>
+     <!-- Page container with Bootstrap classes -->
      <div class="container-xxl px-md-5 bg-white shadow-lg">
 
-          <header
-               class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <!-- Header section with logo, navigation links, and search bar -->
+          <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+               <!-- Logo and site name -->
                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
                    <h1 id="logo"><b>A</b>jay <b>A</b>rts</h1>
                </a>
 
+               <!-- Navigation links -->
                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
                     <li><a href="/about" class="nav-link px-2 link-secondary">About</a></li>
+                    <!-- Uncomment the line below to add a Submit link -->
                     <!-- <li><a href="/submit-painting" class="nav-link px-2 link-secondary">Submit</a></li> -->
                     <li><a href="/contact" class="nav-link px-2 link-secondary">Contact</a></li>
                </ul>
+
+               <!-- Search bar -->
                <div class="col-md-3 text-end">
                     <form method="POST" action="/search">
                          <input type="search" name="searchTerm" class="form-control" placeholder="Search..."
@@ -79,18 +82,13 @@
                </div>
           </header>
 
-
-
-
-
-
-
-
+          <!-- Main content of the page -->
           <main>
+               <!-- Dynamic content rendered here -->
                <%- body -%>
           </main>
 
-
+          <!-- Footer section with copyright information and social icons -->
           <footer class="bg-dark text-light text-center py-3 mt-4">
                <div class="container">
                     <p class="mb-0">&copy; 2023 Copyright: Ajay Arts</p>
@@ -106,27 +104,26 @@
                </div>
           </footer>
 
-
-
      </div>
+
+     <!-- Bootstrap JavaScript bundle -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
+
+     <!-- Custom JavaScript -->
      <script src="/js/script.js"></script>
 
-
-     <!-- Add these lines to include Bootstrap CSS and JS -->
+     <!-- Bootstrap CSS and JS for compatibility -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-     <!-- Bootstrap JS and any additional scripts go here -->
+     <!-- Additional scripts or links to external JS files -->
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <!-- Add any additional scripts or links to external JS files here -->
-
 </body>
 
 </html>

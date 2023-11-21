@@ -1,11 +1,14 @@
 <% if(painting != null ) { %>
 
+  
+  <!-- Breadcrumb Navigation -->
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Home/<%- painting.category %></a></li>
     </ol>
   </nav>
 
+   <!-- Main Content Container -->
   <div class="container h-100">
     <div class="row align-items-center h-100">
       <div class="col-12 col-md-6 mx-auto">
@@ -16,5 +19,6 @@
   </div>  
   
 <% } else { %>
+   <!-- Displayed when No Item is Found -->
   <p>No item found.</p>
 <% } %>

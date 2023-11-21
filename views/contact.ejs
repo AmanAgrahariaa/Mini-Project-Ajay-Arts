@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set, viewport, and page title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+
+    <!-- External CSS styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.css">
+
+
+    <!-- Internal CSS styles -->
     <style>
         .card-img-top {
             border-radius: 50%;
@@ -47,7 +53,6 @@
             width: 80px;
             height: 80px;
         }
-
     </style>
 </head>
 
@@ -58,7 +63,10 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title text-center mb-4">Send Message</h3>
+                        <h3 class="card-title text-center mb-4">Feedback Message</h3>
+
+                        <!-- Flash message container -->
+                        <div id="flash-message" class="alert" style="display: none;"></div>
                         <form>
                             <!-- Your form goes here -->
                             <div class="form-group">
@@ -79,9 +87,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" id="message" placeholder="Write your message here..."></textarea>
+                                <textarea class="form-control" id="message"
+                                    placeholder="Write your message here..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="submit" class="btn btn-primary" id="formsubmit" value="send">Send</button>
                         </form>
                     </div>
                 </div>
@@ -90,7 +99,8 @@
             <!-- info box -->
             <div class="col-lg-6">
                 <div class="card">
-                    <img src="/img/painter-image.jpg" alt="Painter Image" class="card-img-top mx-auto img-fluid rounded" style="height: 50%; width: 50%;">
+                    <img src="/img/painter-image.jpg" alt="Painter Image" class="card-img-top mx-auto img-fluid rounded"
+                        style="height: 50%; width: 50%;">
                     <div class="card-body">
                         <div>
                             <!-- Your contact info goes here -->
@@ -107,8 +117,10 @@
                                 <a href="tel:+919826219106">9826219106</a>
                             </div>
                             <ul class="sci">
-                                <li><a href='https://www.facebook.com/ajayshukla2016/'><ion-icon name="logo-facebook"></ion-icon></a></li>
-                                <li><a href='https://instagram.com/ajayshukla994?igshid=NGVhN2U2NjQ0Yg=='><ion-icon name="logo-instagram"></ion-icon></a></li>
+                                <li><a href='https://www.facebook.com/ajayshukla2016/'><ion-icon
+                                            name="logo-facebook"></ion-icon></a></li>
+                                <li><a href='https://instagram.com/ajayshukla994?igshid=NGVhN2U2NjQ0Yg=='><ion-icon
+                                            name="logo-instagram"></ion-icon></a></li>
                             </ul>
                         </div>
                     </div>
@@ -132,7 +144,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    
+
     <!-- for mailing sign up to EmailJS-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
@@ -143,6 +155,21 @@
     </script>
 
     <script>
+
+        // Function to show flash message
+        function showFlashMessage(message, type = 'success') {
+            const flashMessage = document.getElementById('flash-message');
+            flashMessage.textContent = message;
+            flashMessage.className = `alert alert-${type}`;
+            flashMessage.style.display = 'block';
+
+            // Automatically hide after 3 seconds (adjust as needed)
+            setTimeout(() => {
+                flashMessage.style.display = 'none';
+            }, 3000);
+        }
+
+
         const form = document.getElementById("formsubmit");
 
         form.addEventListener("click", sendEmail);
@@ -156,8 +183,6 @@
                 phone_No: document.getElementById("phone").value,
                 message: document.getElementById("message").value
             };
-            console.log("contact javascript");
-
             const service_id = "service_5fnll59";// give your service id
             const temp_id = "template_e7mxfk9";  // give your template id
             emailjs.send(service_id, temp_id, params)
@@ -168,17 +193,14 @@
                         document.getElementById("email").value = "";
                         document.getElementById("phone").value = "";
                         document.getElementById("message").value = "";
-                        console.log(res);
-                        alert("Message sent successfully");
+                        // console.log(res);
+                        // alert("message sent successfully");
+                        showFlashMessage("Message sent successfully", 'success');
                     }
                 )
-                .catch((err) => console.log(err));
+                .catch((err) => { showFlashMessage("Error sending message", 'danger'); console.log(err) });
         }
     </script>
 </body>
 
 </html>
-
-
-
-
